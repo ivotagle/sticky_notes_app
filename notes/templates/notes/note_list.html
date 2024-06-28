@@ -1,0 +1,20 @@
+<!-- notes/templates/notes/note_list.html -->
+<!--This HTML will show all created notes in a list ordered chronologically--> 
+
+
+{% extends 'notes/base.html' %}
+
+{% block title %}Sticky Notes - List{% endblock %}
+
+{% block content %}
+    <a href="{% url 'notes:note_create' %}">Create New Note</a>
+    <ul>
+        {% for note in notes %}
+            <li>
+                <a href="{% url 'notes:note_detail' note.pk %}">{{ note.title }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+
+

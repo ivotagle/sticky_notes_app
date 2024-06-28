@@ -1,0 +1,24 @@
+<!--Last reviewer reminded me to start with a base html to comply with DRY-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Sticky Notes{% endblock %}</title>
+    {% load static %}   <!--Took ages to find this and make it work --> 
+    <link rel="stylesheet" type="text/css" href="{% static 'notes/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <header> <!--learnt to use : to define folder paths-->
+            <h1><a href="{% url 'notes:note_list' %}">Sticky Notes</a></h1>
+        </header>
+        <main>
+            {% block content %}{% endblock %}
+        </main>
+        <footer>
+            <p>&copy; 2024 SN Ltd</p>
+        </footer>
+    </div>
+</body>
+</html>

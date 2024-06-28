@@ -1,0 +1,17 @@
+<!-- notes/templates/notes/note_detail.html -->
+<!--This HTML will be used after we click on any note and will show its details.--> 
+
+
+{% extends 'notes/base.html' %}
+
+{% block title %}{{ note.title }}{% endblock %}
+
+{% block content %}
+    <h1>{{ note.title }}</h1>
+    <p>{{ note.content }}</p>
+    <p>
+        <a href="{% url 'notes:note_update' note.pk %}">Edit</a> |
+        <a href="{% url 'notes:note_delete' note.pk %}">Delete</a>
+    </p>
+    <p><a href="{% url 'notes:note_list' %}">Back to list</a></p>
+{% endblock %}

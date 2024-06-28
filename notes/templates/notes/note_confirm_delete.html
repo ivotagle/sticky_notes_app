@@ -1,0 +1,16 @@
+<!-- notes/templates/notes/note_confirm_delete.html -->
+<!--This HTML will be presented before we confirm a note deletion --> 
+
+{% extends 'notes/base.html' %}
+
+{% block title %}Delete Note{% endblock %}
+
+{% block content %}
+    <h1>Are you sure you want to delete "{{ note.title }}"?</h1>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Confirm</button>
+    </form>
+    <a href="{% url 'notes:note_detail' note.pk %}">Cancel</a>
+{% endblock %}
+
